@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人主页</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        div img{width:100%}
+
+    </style>
+</head>
+<body style="background-color: #537cca;">
+<div>
+    <img src="/static/photos/{{ img_path }}" alt="" >
+</div>
+
+<a href="/upload_head">
+    <button>修改头像</button><br>
+</a><br>
+<a href="/">
+    <button>前往主页</button><br>
+</a>
+<h2>用户名:{{ user }}</h2>
+<h3>爱好:{{ hobby }}</h3><h3>年龄:{{ age }}</h3>
+<h3>
+    留言记录:
+        {% for message in message_list %}
+            <li>内容:{{ message.content }}</li>
+            <li>留言时间:{{ message.time }}</li>
+            <br>
+        {% endfor %}
+</h3>
+</body>
+</html>

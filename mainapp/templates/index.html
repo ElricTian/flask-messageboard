@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <title>留言板</title>
+</head>
+
+<body style="background-color: #537cca;">
+
+    <h4>当前用户:{{ user }}</h4>
+
+    <a href="/user">
+        <button>个人中心</button><br>
+    </a>
+<br>
+    <a href="/logout">
+        <button>退出登录 </button><br>
+    </a>
+    <br><br>
+
+    <img src="/static/photos/cat.gif">
+<form action="/" method="post">
+        <br>
+    <textarea  name="Content" ></textarea>
+        <br>
+    <button>提交留言</button>
+</form>
+    {{ tips }}
+
+<dl>
+    <h4>留言列表</h4>
+        {% for message in message_list %}
+            <li>内容:{{ message.content }}</li>
+            <li>用户名:{{ message.name }}</li>
+            <li>留言时间:{{ message.time }}</li>
+            <br>
+        {% endfor %}
+</dl>
+<img src="/static/photos/cat2.gif">
+</body>
+</html>

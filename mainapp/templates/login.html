@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+    <h3>用户登录</h3>
+    <form action="/login" method="post">
+        用户名:<input name="name" size="20"><br>
+        密&nbsp;&nbsp;&nbsp;码:<input name="password" type="password" size="20"><br>
+        <button>登录</button>
+    </form>
+    {{ tips }}<br>
+    <a href="{{ register }}">注册</a>
+</body>
+</html>
