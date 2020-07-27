@@ -2,41 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" />
     <title>留言板</title>
+    <script type="text/javascript">
+
+    function method(){
+			var color="#";
+			for(var i=0;i<6;i++){
+				color += (Math.random()*16 | 0).toString(16);
+			}
+			return color;}
+
+    </script>
 </head>
 
-<body style="background-color: #537cca;">
+<body>
 
-    <h4>当前用户:{{ user }}</h4>
+    <div class=" mian display-1">
+        当前用户:{{ user }}
+        <div class="text-right">
+        <a href="/user">个人中心</a>
+        <a href="/logout">退出登录</a>
+        </div>
+    </div>
 
-    <a href="/user">
-        <button>个人中心</button><br>
-    </a>
-<br>
-    <a href="/logout">
-        <button>退出登录 </button><br>
-    </a>
-    <br><br>
 
-    <img src="/static/photos/cat.gif">
+<h1 class="text-center display-2">
+    <strong>留言板</strong>
+</h1>
+
+
+<div class="text-center">
 <form action="/" method="post">
-        <br>
-    <textarea  name="Content" ></textarea>
-        <br>
-    <button>提交留言</button>
-</form>
-    {{ tips }}
+       
+    <textarea class="form" name="Content" ></textarea>
+    <br>
+    <input class="btn btn-secondary"  name="提交留言" type="submit" value="提交留言">
 
-<dl>
-    <h4>留言列表</h4>
+</form>
+
+</div>
+<br>
+
+<div class="list-group">
+    
         {% for message in message_list %}
-            <li>内容:{{ message.content }}</li>
-            <li>用户名:{{ message.name }}</li>
-            <li>留言时间:{{ message.time }}</li>
-            <br>
+        <div class="list-group-item">
+            <h5 class="username">{{ message.name }}</h5>
+            <div class="text-right">{{ message.time }}</div>
+            <p>{{ message.content }}</p>
+            
+            
+            
+        </div>
         {% endfor %}
-</dl>
-<img src="/static/photos/cat2.gif">
+</div>
+
+
+
 </body>
+
+
 </html>
