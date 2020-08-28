@@ -124,7 +124,7 @@ def upload_file():
     if request.method == 'POST':
         # 上传图片到静态资源里
         file = request.files['file']
-        path = r'C:\Users\Administrator\Desktop\message_board\mainapp\static\photos\user_'
+        path = r'mainapp/static/photos/user_'
         user = session.get('login_user')
         filename = user + '.jpg'
         file.save(path + filename)
